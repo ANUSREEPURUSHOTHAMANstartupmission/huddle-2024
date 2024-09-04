@@ -36,8 +36,11 @@ import SocialLinks from "../components/SocialLinks.astro";
 
 
   <div class="early-bird">
-    <img src="/img/Freedom50IND.png" onclick="booking_popup('huddle-global-2024')" class="h-24 md:h-40 cursor-pointer" />
+    <img src="/img/huddle45.svg" onclick="booking_popup('huddle-global-2024')" class="h-24 md:h-40 cursor-pointer" />
   </div>
+  <!-- <div class="">
+    <img src="/img/pre.svg" onclick="booking_popup('huddle-global-2024')" class="h-24 md:h-40 cursor-pointer bottom-24 absolute z-50  right-50" />
+  </div> -->
 
 	<div id="about" class="px-5 py-24 bg-black">
     <div class="container mx-auto">
@@ -153,7 +156,7 @@ import SocialLinks from "../components/SocialLinks.astro";
       
     </div>
   </div>
-
+  
  
 
  
@@ -220,7 +223,7 @@ import SocialLinks from "../components/SocialLinks.astro";
     </div>
   </section>
 
-  <section class="px-8 py-16 sm:px-24  bg-black" >
+  <section class="px-8 py-16 sm:px-24  bg-black " >
     <div class="flex flex-col items-center justify-center sm:flex-row">
       <div class="flex flex-col items-center text-center text-white ">
         <img src="/img/huddle_white.svg" alt="KSUM Logo" class="w-48">
@@ -264,6 +267,26 @@ import SocialLinks from "../components/SocialLinks.astro";
     </button>
   </div> 
 
+
+<!-- road show -->
+
+  <!-- <div class="fixed left-0 bottom-12 m-4  z-50 bg-white shadow-md rounded-md   md:w-72 w-[20vh] animate__animated  animate__fadeInDown" id="roadshow">
+    <div class="relative overflow-hidden">
+      <a href="https://ksum.in/HGRoadshow" target="_blank"> 
+        <img src="/img/roadshow.jpeg" alt="Your Image" class=" ">
+      </a>
+    </div>
+    <button class="absolute -top-2 -left-2 rounded-full bg-slate-900 text-white" id="roadshowclose">
+        <svg class="h-5 w-5" fill="white" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+    </button>
+  </div> -->
+
+
+
+
+  
   <style is:inline>
     
     .early-bird{
@@ -282,28 +305,29 @@ import SocialLinks from "../components/SocialLinks.astro";
 
   <script src="https://eventmanager.startupmission.in/api/script/booking" is:inline></script>
 
-	<script>
+  <script >
 		
-		import Plyr from 'plyr';
-		var player = new Plyr("#youtube_player");
-	
-		document.querySelector('.youtube-button').addEventListener('click', function () {
-			document.querySelector('.youtube-popup').classList.remove('hidden');
-			player.play();
-		});
-	
-		document.querySelector('.close-video').addEventListener('click', function () {
-			document.querySelector('.youtube-popup').classList.add('hidden');
-			player.stop();
-		});
-	
-	</script>
-
-  <script>
-    
+    import Plyr from 'plyr';
+    var player = new Plyr("#youtube_player");
+  
+    document.querySelector('.youtube-button').addEventListener('click', function () {
+      document.querySelector('.youtube-popup').classList.remove('hidden');
+      player.play();
+    });
+  
+    document.querySelector('.close-video').addEventListener('click', function () {
+      document.querySelector('.youtube-popup').classList.add('hidden');
+      player.stop();
+    });
+  
   </script>
+  
 
 </Layout>
+
+
+
+
 
 <style lang="scss" is:global>
  #pop_up{
@@ -317,6 +341,19 @@ import SocialLinks from "../components/SocialLinks.astro";
     }
   }
 </style>
+
+<style lang="scss" is:global>
+  #roadshow{
+   display: none;
+   
+  }
+ 
+  .scrolled{ 
+     #roadshow{
+       display: block;
+     }
+   }
+ </style>
 
 <style is:global>
    button.collision {
@@ -619,39 +656,30 @@ import SocialLinks from "../components/SocialLinks.astro";
 <script is:inline>
 	function functionshow(d) {
     document.getElementById('pop_up').style.display = 'block';
+    document.getElementById('roadshow').style.display = 'none';
 	}
 </script>
 
 <script is:inline>
   document.getElementById('closePopup').addEventListener('click', function() {
           document.getElementById('pop_up').style.display = 'none';
+          document.getElementById('roadshow').style.display = 'block';
+
+      });
+</script>
+
+<!-- <script is:inline>
+	function functionshow(d) {
+    document.getElementById('roadshow').style.display = 'block';
+	}
+</script> -->
+
+<script is:inline>
+  document.getElementById('roadshowclose').addEventListener('click', function() {
+          document.getElementById('roadshow').style.display = 'none';
       });
 </script>
 
 
-<script>
-  document.getElementById('speakers_show').addEventListener('click', function() {
-      const toggleElement = document.getElementById('previous_speakers');
-      const button_id = document.getElementById('speakers_show');
-      const button_idd = document.getElementById('speakers_hide');
-
-      toggleElement.classList.remove('hidden');
-      button_id.classList.add('hidden');
-      button_idd.classList.remove('hidden');
-  });
-</script>
 
 
-<script>
-  document.getElementById('speakers_hide').addEventListener('click', function() {
-      const toggleElement = document.getElementById('previous_speakers');
-      const button_id = document.getElementById('speakers_show');
-      const button_idd = document.getElementById('speakers_hide');
-
-      toggleElement.classList.add('hidden');
-      button_id.classList.remove('hidden');
-      button_idd.classList.remove('hidden');
-
-
-  });
-</script>
